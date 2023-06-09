@@ -1,5 +1,3 @@
-# Curso: Desarrollo de Servicios Web 1 (Grupo V.05.2023-IIE)
+### traductor de dias de la semana de español a ingles
 
-## Crear un WS usando SOAP
-
-Guía: https://spring.io/guides/gs/producing-web-service/
+* he reutilizado el proyecto en clase para vanzar mas rapido
