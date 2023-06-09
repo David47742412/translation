@@ -1,60 +1,51 @@
 package pe.edu.idat.dsw1soapJ19;
 
+import io.spring.guides.gs_producing_web_service.Day;
 import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.spring.guides.gs_producing_web_service.Country;
-import io.spring.guides.gs_producing_web_service.Currency;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 @Component
 public class CountryRepository {
     
-    private static final Map<String, Country> countries = new HashMap<>();
+    private static final Map<String, Day> countries = new HashMap<>();
 
 	@PostConstruct
 	public void initData() {
-		Country spain = new Country();
-		spain.setName("Spain");
-		spain.setCapital("Madrid");
-		spain.setCurrency(Currency.EUR);
-		spain.setPopulation(46704314);
+		var lunes = new Day();
+		lunes.setName("Monday");
+		countries.put("lunes", lunes);
+		var martes = new Day();
+		martes.setName("Tuesday");
+		countries.put("martes", martes);
+		var miercoles = new Day();
+		miercoles.setName("Wednesday");
+		countries.put("miercoles", miercoles);
 
-		countries.put(spain.getName(), spain);
+		var jueves = new Day();
+		jueves.setName("Thursday");
+		countries.put("jueves", jueves);
 
-		Country poland = new Country();
-		poland.setName("Poland");
-		poland.setCapital("Warsaw");
-		poland.setCurrency(Currency.PLN);
-		poland.setPopulation(38186860);
+		var viernes = new Day();
+		viernes.setName("Friday");
+		countries.put("viernes", viernes);
 
-		countries.put(poland.getName(), poland);
+		var sabado = new Day();
+		sabado.setName("Saturday");
+		countries.put("sabado", sabado);
 
-		Country uk = new Country();
-		uk.setName("United Kingdom");
-		uk.setCapital("London");
-		uk.setCurrency(Currency.GBP);
-		uk.setPopulation(63705000);
-
-		countries.put(uk.getName(), uk);
-
-		Country pe = new Country();
-		pe.setName("Peru");
-		pe.setCapital("Lima");
-		pe.setCurrency(Currency.PEN);
-		pe.setPopulation(33000007);
-
-		countries.put(pe.getName(), pe);
-
-
+		var domingo = new Day();
+		domingo.setName("Sunday");
+		countries.put("domingo", domingo);
 	}
 
-	public Country findCountry(String name) {
+
+	public Day findCountry(String name) {
 		Assert.notNull(name, "The country's name must not be null");
+		//System.out.println(countries.get("Monday").getName());
 		return countries.get(name);
 	}
-
-
 }
